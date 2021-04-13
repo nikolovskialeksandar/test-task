@@ -1,6 +1,6 @@
-import styles from './SearchUsers.module.css';
+import styles from './SearchBox.module.css';
 
-const searchUsers = (props) => (
+const searchBox = (props) => (
   <div className={styles.searchUsers}>
     <form>
       <input type="text" placeholder="Search users" onChange={props.searchUsers} />
@@ -8,4 +8,4 @@ const searchUsers = (props) => (
   </div>
 );
 
-export default searchUsers;
+export default searchBox;

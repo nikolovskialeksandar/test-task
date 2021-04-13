@@ -1,7 +1,9 @@
+import styles from './SearchUsers.module.css';
+
 const searchUsers = (props) => (
-  <div>
+  <div className={styles.searchUsers}>
     <form>
-      <input type="text" onChange={props.searchUsers} />
+      <input type="text" placeholder="Search users" onChange={props.searchUsers} />
     </form>
   </div>
 );

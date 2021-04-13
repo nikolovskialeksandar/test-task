@@ -25,5 +25,6 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'react/react-in-jsx-scope': 'off'
   },
 };

@@ -1,0 +1,3 @@
+export const SET_USERS = 'SET_USERS';
+export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED';
+export const SEARCH_USERS = 'SEARCH_USERS';

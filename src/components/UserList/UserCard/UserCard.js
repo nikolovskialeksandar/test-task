@@ -4,7 +4,7 @@ const userCard = (props) => {
   return (
     <div className={styles.userCard}>
       <img src={props.avatarUrl} alt="userAvatar"></img>
-      <p>{props.username}</p>
+      <h3>{props.username}</h3>
     </div>
   );
 };

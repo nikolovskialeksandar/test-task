@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import './App.css';
+import styles from './App.module.css';
 
 import SearchUsers from '../../components/SearchUsers/SearchUsers';
 import UserList from '../../components/UserList/UserList';
 import * as actionCreators from '../../store/actions/index';
 
 const App = (props) => (
-  <div className="App">
+  <div className={styles.app}>
     <SearchUsers searchUsers={(event) => props.searchUsers(event.target.value)} />
     <UserList users={props.users} />
   </div>

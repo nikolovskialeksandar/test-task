@@ -1,0 +1,11 @@
+.searchUsers {
+  margin: 40px;
+}
+
+.searchUsers input {
+  width: 30%;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e6eaf1;
+}

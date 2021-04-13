@@ -1,11 +1,22 @@
+import { connect } from 'react-redux';
+
 import './App.css';
 
-const App = () => {
-  return (
-    <div className="App">
+import SearchUsers from '../../components/SearchUsers/SearchUsers';
+import * as actionCreators from '../../store/actions/index';
 
-    </div>
-  );
-}
+const App = (props) => (
+  <div className="App">
+    <SearchUsers searchUsers={(event) => props.searchUsers(event.target.value)} />
+  </div>
+);
 
-export default App;
+const mapStateToProps = (state) => ({
+  users: state.users.users,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

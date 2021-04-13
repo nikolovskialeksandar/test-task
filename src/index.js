@@ -13,9 +13,11 @@ import './index.css';
 import App from './containers/App/App';
 import reportWebVitals from './reportWebVitals';
 import usersReducer from './store/reducers/usersReducer';
+import reposReducer from './store/reducers/reposReducer';
 
 const rootReducer = combineReducers({
   users: usersReducer,
+  repos: reposReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

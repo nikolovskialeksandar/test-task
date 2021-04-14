@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   repos: [],
+  selectedUser: '',
   error: null,
 };
 
@@ -11,6 +12,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         repos: action.repos,
+        selectedUser: action.selectedUser,
         error: action.error,
       };
     case actionTypes.FETCH_REPOS_FAILED:

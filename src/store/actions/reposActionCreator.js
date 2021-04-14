@@ -2,9 +2,10 @@ import axios from '../../services/axios';
 
 import * as actionTypes from './actionTypes';
 
-export const setRepos = (users) => ({
+export const setRepos = (repos, selectedUser) => ({
   type: actionTypes.SET_REPOS,
-  users,
+  repos,
+  selectedUser
 });
 
 export const fetchReposFailed = (error) => ({
@@ -18,7 +19,7 @@ export const fetchRepos = (username) => {
     axios
     .get(url)
     .then((response) => {
-      dispatch(setRepos(response.data));
+      dispatch(setRepos(response.data, username));
     })
     .catch((error) => {
       dispatch(fetchReposFailed(error));

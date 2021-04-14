@@ -1,0 +1,22 @@
+.error-page {
+  width: 40%;
+  height: 400px;
+  padding: 40px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0px 3px 15px #00000011;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.error-page p {
+  font-size: 2em;
+}
+
+.error-page span {
+  font-size: 1.4em;
+}
+
+.error-page a {
+  font-size: 1.3em;
+}

@@ -23,6 +23,11 @@ export const fetchUsersFailed = (error) => ({
   error,
 });
 
+export const clearUsersError = () => ({
+  type: actionTypes.CLEAR_USERS_ERROR,
+});
+
+
 export const searchUsers = (searchTerm) => {
   const url = `/search/users?q=${searchTerm}`;
   return (dispatch) => {

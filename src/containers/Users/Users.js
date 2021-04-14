@@ -1,11 +1,17 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
 import * as actionCreators from '../../store/actions/index';
 
 const users = (props) => {
+  let error = null;
+  if(props.error) {
+    error = <Redirect to="/error" />;
+  }
+
   let userCards = null;
   if(props.users) {
     userCards = props.users.map((user) => {
@@ -21,6 +27,7 @@ const users = (props) => {
   
   return (
     <Fragment>
+      {error}
       <nav>
         <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
       </nav>
@@ -32,6 +39,7 @@ const users = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  error: state.users.error || state.repos.error,
   users: state.users.users,
   selectedUser: state.repos.selectedUser,
 });

@@ -8,15 +8,20 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_USERS:
-      return {
+      return {  
         ...state,
         users: action.users,
-        error: action.error,
+        error: null,
       };
     case actionTypes.FETCH_USERS_FAILED:
       return {
         ...state,
         error: action.error,
+      };
+    case actionTypes.CLEAR_USERS_ERROR:
+      return {
+        ...state,
+        error: null,
       };
     default:
       return state;

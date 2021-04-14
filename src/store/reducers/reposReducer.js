@@ -13,12 +13,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         repos: action.repos,
         selectedUser: action.selectedUser,
-        error: action.error,
+        error: null,
       };
     case actionTypes.FETCH_REPOS_FAILED:
       return {
         ...state,
         error: action.error,
+      };
+    case actionTypes.CLEAR_REPOS_ERROR:
+      return {
+        ...state,
+        error: null,
       };
     default:
       return state;

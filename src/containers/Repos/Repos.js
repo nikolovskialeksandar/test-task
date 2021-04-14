@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import RepoCard from '../../components/RepoCard/RepoCard';
 
 const repos = (props) => {
+  let error = null;
+  if(props.error) {
+    error = <Redirect to="/error" />;
+  }
+
   let repoCards = null;
   if(props.repos) {
     repoCards = (props.repos).map((repo) => (
@@ -20,12 +26,14 @@ const repos = (props) => {
 
   return (
     <div className="card-list">
+      {error}
       {repoCards}
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
+  error: state.users.error || state.repos.error,
   repos: state.repos.repos,
 });
 

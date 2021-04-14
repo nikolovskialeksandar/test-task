@@ -13,8 +13,12 @@ export const fetchReposFailed = (error) => ({
   error,
 });
 
+export const clearReposError = () => ({
+  type: actionTypes.CLEAR_REPOS_ERROR,
+});
+
 export const fetchRepos = (username) => {
-  const url = `/users/${username}/repos`;
+  const url = `/users/${username}/repo`;
   return (dispatch) => {
     axios
     .get(url)
@@ -22,7 +26,7 @@ export const fetchRepos = (username) => {
       dispatch(setRepos(response.data, username));
     })
     .catch((error) => {
-      dispatch(fetchReposFailed(error));
+      dispatch(fetchReposFailed(error.response.status));
     });
   };
 };

@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import Users from '../Users/Users';
+import Repos from '../Repos/Repos';
 
 const App = (props) => (
   <Switch>
-    <Route path="/repos" />
+    <Route path="/repos/" component={Repos} />
     <Route path="/" component={Users} />
   </Switch>
 );

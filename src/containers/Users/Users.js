@@ -11,13 +11,13 @@ const users = (props) => {
   if(props.users) {
     userCards = props.users.map((user) => {
       return (
-        <UserCard 
+        <UserCard
           fetchRepos={() => props.fetchRepos(user.login)}
           username={user.login}
           avatarUrl={user.avatar_url}
         />
-      )
-    })
+      );
+    });
   }
   
   return (
@@ -32,6 +32,7 @@ const users = (props) => {
 
 const mapStateToProps = (state) => ({
   users: state.users.users,
+  selectedUser: state.repos.selectedUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,0 +1,7 @@
+.repoList {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}

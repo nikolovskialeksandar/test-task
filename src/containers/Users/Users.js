@@ -21,10 +21,12 @@ const users = (props) => {
   
   return (
     <Fragment>
-      <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
-      <div className="card-list">
+      <nav>
+        <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
+      </nav>
+      <main className="card-list">
         {userCards}
-      </div>
+      </main>
     </Fragment>
   );
 };

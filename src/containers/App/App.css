@@ -8,22 +8,24 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #2c2c2c;
 }
+
 h1 {
   padding: 0.5em;
   color: #2274a5;
   letter-spacing: 3px;
   font-family: 'Titillium Web', sans-serif;
 }
+
 input:focus {
   outline: none;
 }
 
 .card-list {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
+  justify-content: flex-start;
 }
 
 .card {

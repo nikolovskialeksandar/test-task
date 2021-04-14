@@ -13,6 +13,7 @@ const repos = (props) => {
           stars={repo.stargazers_count}
           watchers={repo.watchers_count}
           forks={repo.forks_count}
+          license={repo.license}
         />
     ));
   }

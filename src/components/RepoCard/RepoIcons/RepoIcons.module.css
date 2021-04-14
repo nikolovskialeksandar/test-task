@@ -1,0 +1,15 @@
+.repoIcons {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+}
+
+.repoIcons span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.repoIcons i {
+  padding: 1em;
+}

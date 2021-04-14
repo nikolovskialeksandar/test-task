@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../services/axios';
 
 import * as actionTypes from './actionTypes';
 
@@ -13,7 +13,7 @@ export const fetchReposFailed = (error) => ({
 });
 
 export const fetchRepos = (username) => {
-  const url = `https://api.github.com/users/${username}/repos`;
+  const url = `/users/${username}/repos`;
   return (dispatch) => {
     axios
     .get(url)

@@ -1,0 +1,25 @@
+.repo-icons {
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+  word-break: normal;
+}
+
+.repo-icons span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.repo-icons i {
+  padding: 1em;
+}
+
+.repo-icons .fa-star {
+  color: #ffd66fbd
+}
+
+.repo-icons .fa-code-branch {
+  color: #023047;
+}
+

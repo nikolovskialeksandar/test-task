@@ -1,7 +1,7 @@
-import styles from './RepoIcons.module.css';
+import './RepoIcons.css';
 
 const repoIcons = (props) => (
-  <div className={styles.repoIcons}>
+  <div className="repo-icons">
     <span>
       <p>{props.stars}</p>
       <i class="fas fa-star"></i>

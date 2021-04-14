@@ -1,12 +1,14 @@
-import styles from './UserCard.module.css';
 import { Link } from 'react-router-dom';
+
+import './UserCard.css';
 
 const userCard = (props) => {
   return (
-    <div className={styles.userCard}>
-      <Link onClick={props.fetchRepos}  to={`/repos/${props.selectedUser}`}>      <img src={props.avatarUrl} alt="userAvatar"></img></Link>
-
-      <h3>{props.username}</h3>
+    <div className="card user-card">
+      <img src={props.avatarUrl} alt="userAvatar"></img>
+      <Link onClick={props.fetchRepos}  to={`/repos/${props.selectedUser}`}>
+        <h3>{props.username}</h3>
+      </Link>
     </div>
   );
 };

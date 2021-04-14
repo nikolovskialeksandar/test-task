@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-import styles from './Repos.module.css';
 import RepoCard from '../../components/RepoCard/RepoCard';
 
 const repos = (props) => {
@@ -19,7 +18,7 @@ const repos = (props) => {
   }
 
   return (
-    <div className={styles.repoList}>
+    <div className="card-list">
       {repoCards}
     </div>
   );

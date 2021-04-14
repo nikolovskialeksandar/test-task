@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import styles from './Users.module.css';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
 import * as actionCreators from '../../store/actions/index';
@@ -23,7 +22,7 @@ const users = (props) => {
   return (
     <Fragment>
       <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
-      <div className={styles.userList}>
+      <div className="card-list">
         {userCards}
       </div>
     </Fragment>

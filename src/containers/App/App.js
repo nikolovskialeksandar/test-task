@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
+import './App.css'; 
 import Users from '../Users/Users';
 import Repos from '../Repos/Repos';
 

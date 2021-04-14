@@ -1,8 +1,8 @@
-import styles from './RepoCard.module.css';
+import './RepoCard.css';
 
 const repoCard = (props) => {
   return (
-    <div className={styles.repoCard}>
+    <div className="card repo-card">
       <h3>{props.repoName}</h3>
       <p>{props.description}</p>
       <p>{props.stars}</p>

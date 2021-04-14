@@ -1,24 +1,19 @@
 import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 
-import styles from './App.module.css';
-
-import SearchUsers from '../../components/SearchUsers/SearchUsers';
-import UserList from '../../components/UserList/UserList';
-import * as actionCreators from '../../store/actions/index';
+import './App.css'; 
+import Users from '../Users/Users';
+import Repos from '../Repos/Repos';
 
 const App = (props) => (
-  <div className={styles.app}>
-    <SearchUsers searchUsers={(event) => props.searchUsers(event.target.value)} />
-    <UserList users={props.users} />
-  </div>
+  <Switch>
+    <Route path="/repos/" component={Repos} />
+    <Route path="/" component={Users} />
+  </Switch>
 );
 
 const mapStateToProps = (state) => ({
-  users: state.users.users,
+  selectedUser: state.repos.selectedUser
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);

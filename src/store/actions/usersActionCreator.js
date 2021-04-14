@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../services/axios';
 
 import * as actionTypes from './actionTypes';
 
@@ -24,7 +24,7 @@ export const fetchUsersFailed = (error) => ({
 });
 
 export const searchUsers = (searchTerm) => {
-  const url = `https://api.github.com/search/users?q=${searchTerm}`;
+  const url = `/search/users?q=${searchTerm}`;
   return (dispatch) => {
     debounce(() => {
       axios

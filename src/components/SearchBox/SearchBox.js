@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './SearchBox.module.css';
 
 const searchBox = (props) => (
@@ -7,5 +9,9 @@ const searchBox = (props) => (
     </form>
   </div>
 );
+
+searchBox.propTypes = {
+  searchUsers: PropTypes.func.isRequired,
+};
 
 export default searchBox;

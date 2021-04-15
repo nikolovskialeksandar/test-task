@@ -1,11 +1,25 @@
 .searchUsers {
-  margin: 40px;
+  text-align: center;
+  margin: 0 0 5em 0;
 }
 
 .searchUsers input {
-  width: 30%;
+  width: 35%;
   padding: 15px;
   border: none;
   border-radius: 20px;
   background-color: #e6eaf1;
+}
+
+@media(max-width: 1520px) {
+  .searchUsers input {
+    width: 40%;
+  }
+}
+
+@media(max-width: 1000px) {
+  .searchUsers input {
+    width: 60%;
+
+  }
 }

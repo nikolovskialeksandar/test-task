@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Authentication
+
+It is recomended to use authetication to avoid frequent 403 HTTP errors when fetching resources. [Generate](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) github personal access OAuth token for viewing public data with no permissions granted and put it in .env file under name REACT_APP_GITHUB_OAUTH_TOKEN. If token is not provided, app still can be used without authentication.
 ## Available Scripts
 
 In the project directory, you can run:

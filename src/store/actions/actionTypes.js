@@ -1,5 +1,7 @@
 export const SET_USERS = 'SET_USERS';
 export const FETCH_USERS_FAILED = 'FETCH_USERS_FAILED';
+export const CLEAR_USERS_ERROR = 'CLEAR_USERS_ERROR';
 
 export const SET_REPOS = 'SET_REPOS';
 export const FETCH_REPOS_FAILED = 'FETCH_REPOS_FAILED';
+export const CLEAR_REPOS_ERROR = 'CLEAR_REPOS_ERROR';

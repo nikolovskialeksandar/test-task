@@ -1,11 +1,25 @@
 @import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
 body {
   margin: 0;
   background-color: #f9fafc;
   font-family: 'Roboto', sans-serif;
   color: #2c2c2c;
+}
+header a {
+  text-decoration: none;
+}
+
+h1 {
+  padding: 0.5em;
+  color: #2274a5;
+  /* background: -webkit-linear-gradient(#2274a5, ##29A1D4);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  letter-spacing: 3px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 input:focus {
@@ -14,10 +28,10 @@ input:focus {
 
 .card-list {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
+  justify-content: flex-start;
 }
 
 .card {

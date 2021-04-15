@@ -18,23 +18,33 @@ export const setUsers = (users) => ({
   users,
 });
 
-export const fetchUsersFailed = (error) => ({
+export const fetchUsersFailed = (error, status) => ({
   type: actionTypes.FETCH_USERS_FAILED,
   error,
+  status
 });
+
+export const clearUsersError = () => ({
+  type: actionTypes.CLEAR_USERS_ERROR,
+});
+
 
 export const searchUsers = (searchTerm) => {
   const url = `/search/users?q=${searchTerm}`;
   return (dispatch) => {
-    debounce(() => {
-      axios
-      .get(url)
-      .then((response) => {
-        dispatch(setUsers(response.data.items));
-      })
-      .catch((error) => {
-        dispatch(fetchUsersFailed(error));
-      });
-    }, 500);
+    if(searchTerm !== '') {
+      debounce(() => {
+        axios
+        .get(url)
+        .then((response) => {
+          dispatch(setUsers(response.data.items));
+        })
+        .catch((error) => {
+          dispatch(fetchUsersFailed(error, error.response.status));
+        });
+      }, 500);
+    } else {
+      dispatch(setUsers([]));
+    }
   };
 };

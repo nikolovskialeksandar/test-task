@@ -1,42 +1,52 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
 import * as actionCreators from '../../store/actions/index';
 
 const users = (props) => {
-  let userCards = null;
-  if(props.users) {
-    userCards = props.users.map((user) => {
-      return (
-        <UserCard
-          fetchRepos={() => props.fetchRepos(user.login)}
-          username={user.login}
-          avatarUrl={user.avatar_url}
-        />
-      );
-    });
+  let error = null;
+  if(props.error) {
+    error = <Redirect to="/error" />;
   }
+
+  let userCards = props.users.map((user, index) => (
+    <UserCard
+      key={index}
+      username={user.login}
+      avatarUrl={user.avatar_url}
+    />
+  ));
   
   return (
     <Fragment>
-      <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
-      <div className="card-list">
+      {error}
+      <nav>
+        <SearchBox searchUsers={(event) => props.searchUsers(event.target.value)}/>
+      </nav>
+      <main className="card-list">
         {userCards}
-      </div>
+      </main>
     </Fragment>
   );
 };
 
 const mapStateToProps = (state) => ({
   users: state.users.users,
-  selectedUser: state.repos.selectedUser,
+  error: state.users.error || state.repos.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
-  fetchRepos: (username) => dispatch(actionCreators.fetchRepos(username)),
 });
+
+users.propTypes = {
+  users: PropTypes.array.isRequired,
+  error: PropTypes.object,
+  searchUsers: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(users);

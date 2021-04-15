@@ -19,7 +19,7 @@ export const clearReposError = () => ({
 });
 
 export const fetchRepos = (username) => {
-  const url = `/users/${username}/repos`;
+  const url = `/users/${username}/repo`;
   return (dispatch) => {
     axios
     .get(url)

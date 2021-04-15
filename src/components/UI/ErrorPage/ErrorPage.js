@@ -8,14 +8,16 @@ import * as actionCreators from '../../../store/actions/index';
 
 const ErrorPage = (props) => {
   useEffect(() => {
-    props.clearUsersError();
-    props.clearReposError();
+    return () => {
+      props.clearUsersError();
+      props.clearReposError();
+    }
   });
 
   return (
     <div className="error-page">
       <p>Something went wrong</p>
-      <p>Status code <span>{props.error}</span></p>
+      <p>Status code <span>{props.error.status}</span></p>
       <Link to="/">
         Back to home page
       </Link>
@@ -29,7 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 ErrorPage.propTypes = {
-  error: PropTypes.number,
+  error: PropTypes.object,
   clearUsersError: PropTypes.func.isRequired,
   clearReposError: PropTypes.func.isRequired,
 };

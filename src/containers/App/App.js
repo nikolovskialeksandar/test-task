@@ -16,7 +16,7 @@ const app = (props) => (
     <Switch>
       <Route path="/repos" component={Repos} />
       <Route path="/error" render={() => (
-        <ErrorPage error={props.error} />
+        <ErrorPage error={{...props.error}} />
       )}/>
       <Route path="/" component={Users} />
     </Switch>
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => ({
 });
 
 app.propTypes = {
-  error: PropTypes.number
+  error: PropTypes.object
 };
 
 export default connect(mapStateToProps, null)(app);

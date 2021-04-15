@@ -16,7 +16,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_USERS_FAILED:
       return {
         ...state,
-        error: action.error,
+        error: {
+          error: action.error,
+          status: action.status,
+        },
       };
     case actionTypes.CLEAR_USERS_ERROR:
       return {

@@ -18,7 +18,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_REPOS_FAILED:
       return {
         ...state,
-        error: action.error,
+        error: {
+          error: action.error,
+          status: action.status,
+        },
       };
     case actionTypes.CLEAR_REPOS_ERROR:
       return {

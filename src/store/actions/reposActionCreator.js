@@ -8,9 +8,10 @@ export const setRepos = (repos, selectedUser) => ({
   selectedUser
 });
 
-export const fetchReposFailed = (error) => ({
+export const fetchReposFailed = (error, status) => ({
   type: actionTypes.FETCH_REPOS_FAILED,
   error,
+  status,
 });
 
 export const clearReposError = () => ({
@@ -26,7 +27,7 @@ export const fetchRepos = (username) => {
       dispatch(setRepos(response.data, username));
     })
     .catch((error) => {
-      dispatch(fetchReposFailed(error.response.status));
+      dispatch(fetchReposFailed(error, error.response.status));
     });
   };
 };

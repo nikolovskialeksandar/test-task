@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 users.propTypes = {
   users: PropTypes.array.isRequired,
-  error: PropTypes.number,
+  error: PropTypes.object,
   searchUsers: PropTypes.func.isRequired
 };
 

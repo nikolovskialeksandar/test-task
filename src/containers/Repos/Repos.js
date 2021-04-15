@@ -78,7 +78,7 @@ const mapDispatchToProps = (dispatch) => ({
 Repos.propTypes = {
   repos: PropTypes.array.isRequired,
   selectedUser: PropTypes.string.isRequired,
-  error: PropTypes.number,
+  error: PropTypes.object,
   fetchRepos: PropTypes.func.isRequired
 };
 

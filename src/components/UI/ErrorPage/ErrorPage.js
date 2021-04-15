@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './ErrorPage.css';
 import * as actionCreators from '../../../store/actions/index';
@@ -26,5 +27,11 @@ const mapDispatchToProps = (dispatch) => ({
   clearUsersError: () => dispatch(actionCreators.clearUsersError()),
   clearReposError: () => dispatch(actionCreators.clearReposError()),
 });
+
+ErrorPage.propTypes = {
+  error: PropTypes.number,
+  clearUsersError: PropTypes.func.isRequired,
+  clearReposError: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(ErrorPage);

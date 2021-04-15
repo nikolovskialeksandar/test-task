@@ -2,6 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Repos.css';
 import RepoCard from '../../components/RepoCard/RepoCard';
@@ -9,30 +10,29 @@ import Button from '../../components/UI/Button/Button';
 import * as actionCreators from '../../store/actions/index';
 
 const Repos = (props) => {
+  const fetchRepos = props.fetchRepos;
   useEffect(() => {
     const user = window.location.pathname.replace('/repos/', '');
-    props.fetchRepos(user);
-  }, []);
+    fetchRepos(user);
+  }, [fetchRepos]);
 
   let error = null;
   if(props.error) {
     error = <Redirect to="/error" />;
   }
 
-  let repoCards = null;
-  if(props.repos) {
-    repoCards = (props.repos).map((repo) => (
-        <RepoCard 
-          repoName={repo.name}
-          description={repo.description}
-          repoUrl={repo.html_url}
-          stars={repo.stargazers_count}
-          watchers={repo.watchers_count}
-          forks={repo.forks_count}
-          license={repo.license}
-        />
-    ));
-  }
+  let repoCards = (props.repos).map((repo, index) => (
+    <RepoCard
+      key={index} 
+      repoName={repo.name}
+      description={repo.description}
+      repoUrl={repo.html_url}
+      stars={repo.stargazers_count}
+      watchers={repo.watchers_count}
+      forks={repo.forks_count}
+      license={repo.license}
+  />
+  ));
 
   return (
     <Fragment>
@@ -61,5 +61,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchRepos: (username) => dispatch(actionCreators.fetchRepos(username)),
 });
+
+Repos.propTypes = {
+  repos: PropTypes.array.isRequired,
+  selectedUser: PropTypes.string.isRequired,
+  error: PropTypes.number,
+  fetchRepos: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Repos);

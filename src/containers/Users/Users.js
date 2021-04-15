@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
@@ -12,17 +13,13 @@ const users = (props) => {
     error = <Redirect to="/error" />;
   }
 
-  let userCards = null;
-  if(props.users) {
-    userCards = props.users.map((user) => {
-      return (
-        <UserCard
-          username={user.login}
-          avatarUrl={user.avatar_url}
-        />
-      );
-    });
-  }
+  let userCards = props.users.map((user, index) => (
+    <UserCard
+      key={index}
+      username={user.login}
+      avatarUrl={user.avatar_url}
+    />
+  ));
   
   return (
     <Fragment>
@@ -45,5 +42,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
 });
+
+users.propTypes = {
+  users: PropTypes.array.isRequired,
+  error: PropTypes.number,
+  searchUsers: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(users);

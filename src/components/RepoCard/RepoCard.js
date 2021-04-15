@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './RepoCard.css';
 import RepoIcons from './RepoIcons/RepoIcons';
 
@@ -20,6 +22,16 @@ const repoCard = (props) => {
       <p className="repo-license">{props.license ? props.license.name : null}</p>
     </div>
   );
+};
+
+repoCard.propTypes = {
+  repoUrl: PropTypes.string.isRequired,
+  repoName: PropTypes.string.isRequired,
+  stars: PropTypes.number.isRequired,
+  watchers: PropTypes.number.isRequired,
+  forks: PropTypes.number.isRequired,
+  description: PropTypes.string,
+  license: PropTypes.object,
 };
 
 export default repoCard;

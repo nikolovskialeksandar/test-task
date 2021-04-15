@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './UserCard.css';
 
@@ -13,4 +14,8 @@ const userCard = (props) => {
   );
 };
 
+userCard.propTypes = {
+  avatarUrl: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+};
 export default userCard;

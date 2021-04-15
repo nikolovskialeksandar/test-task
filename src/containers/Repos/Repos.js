@@ -1,7 +1,8 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+import axios from '../../services/axios';
 import PropTypes from 'prop-types';
 
 import './Repos.css';
@@ -10,11 +11,22 @@ import Button from '../../components/UI/Button/Button';
 import * as actionCreators from '../../store/actions/index';
 
 const Repos = (props) => {
+  const [ avatarUrl, setAvatarUrl ] = useState('');
+
   const fetchRepos = props.fetchRepos;
   useEffect(() => {
     const user = window.location.pathname.replace('/repos/', '');
     fetchRepos(user);
+    fetchAvatar(user);
   }, [fetchRepos]);
+  
+  const fetchAvatar = (user) => {
+    axios
+    .get(`users/${user}`)
+    .then((response) => {
+      setAvatarUrl(response.data.avatar_url);
+    });
+  };
 
   let error = null;
   if(props.error) {
@@ -43,6 +55,7 @@ const Repos = (props) => {
         </Link>
       </nav>
       <div className="user-profile-info">
+        <img src={avatarUrl} alt="userAvatar"></img>
         <h2>{props.selectedUser}</h2>
       </div>
       <main className="card-list">

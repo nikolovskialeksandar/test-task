@@ -6,7 +6,7 @@ const userCard = (props) => {
   return (
     <div className="card user-card">
       <img src={props.avatarUrl} alt="userAvatar"></img>
-      <Link onClick={props.fetchRepos}  to={`/repos/${props.selectedUser}`}>
+      <Link to={`/repos/${props.username}`}>
         <h3>{props.username}</h3>
       </Link>
     </div>

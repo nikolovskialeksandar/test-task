@@ -17,7 +17,6 @@ const users = (props) => {
     userCards = props.users.map((user) => {
       return (
         <UserCard
-          fetchRepos={() => props.fetchRepos(user.login)}
           username={user.login}
           avatarUrl={user.avatar_url}
         />
@@ -39,14 +38,12 @@ const users = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  error: state.users.error || state.repos.error,
   users: state.users.users,
-  selectedUser: state.repos.selectedUser,
+  error: state.users.error || state.repos.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
-  fetchRepos: (username) => dispatch(actionCreators.fetchRepos(username)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(users);

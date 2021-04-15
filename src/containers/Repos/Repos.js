@@ -1,9 +1,19 @@
+import { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
+import './Repos.css';
 import RepoCard from '../../components/RepoCard/RepoCard';
+import Button from '../../components/UI/Button/Button';
+import * as actionCreators from '../../store/actions/index';
 
-const repos = (props) => {
+const Repos = (props) => {
+  useEffect(() => {
+    const user = window.location.pathname.replace('/repos/', '');
+    props.fetchRepos(user);
+  }, []);
+
   let error = null;
   if(props.error) {
     error = <Redirect to="/error" />;
@@ -25,16 +35,31 @@ const repos = (props) => {
   }
 
   return (
-    <div className="card-list">
+    <Fragment>
       {error}
-      {repoCards}
-    </div>
+      <nav>
+        <Link to="/">
+          <Button buttonClass="button-nav" text="  Back" icon={<i class="fas fa-angle-left"></i>} />
+        </Link>
+      </nav>
+      <div className="user-profile-info">
+        <h2>{props.selectedUser}</h2>
+      </div>
+      <main className="card-list">
+        {repoCards}
+      </main>
+    </Fragment>
   );
 };
 
 const mapStateToProps = (state) => ({
-  error: state.users.error || state.repos.error,
   repos: state.repos.repos,
+  selectedUser: state.repos.selectedUser,
+  error: state.users.error || state.repos.error,
 });
 
-export default connect(mapStateToProps, null)(repos);
+const mapDispatchToProps = (dispatch) => ({
+  fetchRepos: (username) => dispatch(actionCreators.fetchRepos(username)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repos);

@@ -8,6 +8,9 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #2c2c2c;
 }
+header a {
+  text-decoration: none;
+}
 
 h1 {
   padding: 0.5em;

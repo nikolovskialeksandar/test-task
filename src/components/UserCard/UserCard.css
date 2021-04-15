@@ -9,3 +9,21 @@
   margin: 1em 1em 1em 0;
   border-radius: 50%;
 }
+
+@media(max-width: 1520px) {
+  .user-card {
+    width: 28%;
+  }
+}
+
+@media(max-width: 1000px) {
+  .user-card {
+    width: 45%;
+  }
+}
+
+@media(max-width: 800px) {
+  .user-card {
+    width: 100%;
+  }
+}

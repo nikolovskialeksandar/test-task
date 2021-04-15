@@ -15,6 +15,9 @@ header a {
 h1 {
   padding: 0.5em;
   color: #2274a5;
+  /* background: -webkit-linear-gradient(#2274a5, ##29A1D4);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   letter-spacing: 3px;
   font-family: 'Titillium Web', sans-serif;
 }

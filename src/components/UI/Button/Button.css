@@ -15,3 +15,11 @@
 .button-nav {
   background-color: #ee6c4d;
 }
+
+.button-description {
+  width: 120px;
+  height: 25px;
+  color: #4daeee;;
+  background-color: transparent;
+  font-size: 0.7em;
+}

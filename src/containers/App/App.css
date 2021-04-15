@@ -26,6 +26,9 @@ input:focus {
   outline: none;
 }
 
+button:focus {
+  outline:0;
+}
 .card-list {
   width: 80%;
   margin: 0 auto;
@@ -41,7 +44,6 @@ input:focus {
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 3px 15px #00000011;
-  word-break: break-all;
 }
 
 .card a {

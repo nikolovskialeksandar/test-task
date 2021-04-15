@@ -1,13 +1,32 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import axios from '../../services/axios';
 import PropTypes from 'prop-types';
 
 import SearchBox from '../../components/SearchBox/SearchBox';
 import UserCard from '../../components/UserCard/UserCard';
 import * as actionCreators from '../../store/actions/index';
 
-const users = (props) => {
+const Users = (props) => {
+  const [ userBios, setUserBios] = useState({});
+
+  const fetchUserBio = (user) => {
+    axios
+      .get(`/users/${user}`)
+      .then((response) => {
+        const existingUserBios = userBios;
+        let description = response.data.bio;
+        if(response.data.bio === null) {
+          description = 'No description'
+        }
+        setUserBios({
+          ...existingUserBios,
+          [user]: description
+        })
+      })
+  };
+
   let error = null;
   if(props.error) {
     error = <Redirect to="/error" />;
@@ -18,6 +37,8 @@ const users = (props) => {
       key={index}
       username={user.login}
       avatarUrl={user.avatar_url}
+      description={userBios[user.login] ? userBios[user.login] : null}
+      fetchUserBio={() => fetchUserBio(user.login)}
     />
   ));
   
@@ -43,10 +64,10 @@ const mapDispatchToProps = (dispatch) => ({
   searchUsers: (searchTerm) => dispatch(actionCreators.searchUsers(searchTerm)),
 });
 
-users.propTypes = {
+Users.propTypes = {
   users: PropTypes.array.isRequired,
   error: PropTypes.object,
   searchUsers: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(users);
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

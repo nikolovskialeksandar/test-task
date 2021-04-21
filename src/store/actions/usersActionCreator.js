@@ -1,9 +1,9 @@
 import axios from '../../services/axios';
 
 import * as actionTypes from './actionTypes';
-
+let timeout;
 const debounce = (callback, time) => {
-  let timeout;
+
   if(timeout) {
     clearTimeout(timeout)
   }

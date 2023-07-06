@@ -14,7 +14,7 @@ const useWebRTCClient = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const delayedWebRtcInitalization = async (config: WebRTCClientProps) => {
-    await delay(8000);
+    await delay(4000);
     const newWebRTC = new WebRTCClient(config);
     setWebRTCClient(newWebRTC);
   };
@@ -41,10 +41,10 @@ const useWebRTCClient = () => {
       audioRef: audioRef.current as HTMLAudioElement,
     };
 
-    // We intentionally delay initialization to show the loading screen for some time
-    delayedWebRtcInitalization(config);
-
     mockLoadingMessages(setLoadingMessages);
+
+    // We intentionaly delay initialization to show loading screen for some time
+    delayedWebRtcInitalization(config);
   }, []);
 
   return { webRTCClient, isLoading, loadingMessages, sizeContainerRef, videoContainerRef, videoRef, audioRef };

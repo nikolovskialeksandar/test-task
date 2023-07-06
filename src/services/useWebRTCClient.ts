@@ -1,7 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
 import { WebRTCClient, WebRTCClientProps } from '@arcware/webrtc-plugin';
 import mockLoadingMessages from './mockLoadingMessages';
-import { delay } from 'utils';
+import { delay, getEnviornment } from 'utils';
+
+const { shareId, delayTime } = getEnviornment();
 
 const useWebRTCClient = () => {
   const [webRTCClient, setWebRTCClient] = useState<WebRTCClient | null>(null);
@@ -13,8 +15,9 @@ const useWebRTCClient = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const delayedWebRtcInitalization = async (config: WebRTCClientProps) => {
-    await delay(4000);
+  const delayedWebRtcInitalization = async (config: WebRTCClientProps, delayTime = 4000) => {
+    await delay(delayTime);
+
     const newWebRTC = new WebRTCClient(config);
     setWebRTCClient(newWebRTC);
   };
@@ -22,7 +25,7 @@ const useWebRTCClient = () => {
   useEffect(() => {
     const config: WebRTCClientProps = {
       address: 'wss://signalling-client.ragnarok.arcware.cloud/',
-      shareId: process.env.REACT_APP_SHARE_ID,
+      shareId,
       packageId: '',
       settings: {
         /* object with settings */
@@ -44,7 +47,7 @@ const useWebRTCClient = () => {
     mockLoadingMessages(setLoadingMessages);
 
     // We intentionaly delay initialization to show loading screen for some time
-    delayedWebRtcInitalization(config);
+    delayedWebRtcInitalization(config, delayTime);
   }, []);
 
   return { webRTCClient, isLoading, loadingMessages, sizeContainerRef, videoContainerRef, videoRef, audioRef };

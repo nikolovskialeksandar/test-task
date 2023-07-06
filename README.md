@@ -4,11 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Setting up environment
 
-Before starting the app, please create a .env file in the root directory and add the following value:
+Before starting the app, please create a .env file in the root directory and add the following values:
 
-`REACT_APP_SHARE_ID=share-76-42f3-46e8-bb33-8911993449fb`
+```
+REACT_APP_SHARE_ID=share-76-42f3-46e8-bb33-8911993449fb
+REACT_APP_DELAY_TIME=4000
+```
 
-**Note: loading time is intentionally delayed in order to show loading screen**
+**Note: loading time is intentionally delayed in order to show loading screen. You can optionally set delay with enviorment variable, default is 4000ms.**
 
 ## Available Scripts
 

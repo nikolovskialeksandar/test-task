@@ -1,3 +1,4 @@
 import delay from './addDelay';
+import getEnviornment from './getEnviornment';
 
-export { delay };
+export { delay, getEnviornment };

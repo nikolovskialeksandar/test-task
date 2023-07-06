@@ -1,4 +1,4 @@
-const mockLoadingMessages = (setState: React.Dispatch<React.SetStateAction<any[]>>) => {
+const mockLoadingMessages = (setState: React.Dispatch<React.SetStateAction<string[]>>) => {
   const messages = [
     'Creating stream',
     'Waiting for stream',
@@ -38,7 +38,7 @@ const mockLoadingMessages = (setState: React.Dispatch<React.SetStateAction<any[]
       return;
     }
 
-    const message = messages.pop();
+    const message = messages.pop() as string;
     setState((prevState) => [message, ...prevState]);
   }, 1500);
 };

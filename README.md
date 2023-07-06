@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setting up environment
+
+Before starting the app, please create a .env file in the root directory and add the following value:
+
+`REACT_APP_SHARE_ID=share-76-42f3-46e8-bb33-8911993449fb`
+
 ## Available Scripts
 
 In the project directory, you can run:

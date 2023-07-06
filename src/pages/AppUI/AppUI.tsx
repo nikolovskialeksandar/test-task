@@ -23,7 +23,7 @@ const AppUI = ({ webRTCClient }: Props) => {
 
   return (
     <div className={styles.appUI}>
-      <Button className={styles.button} onClick={() => onInteraction(interactions.cam1)} label="Change Cam" />
+      <Button className={styles.button} onClick={() => onInteraction(interactions.cam1)} label="Focus Camera" />
     </div>
   );
 };

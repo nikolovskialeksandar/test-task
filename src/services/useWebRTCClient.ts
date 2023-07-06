@@ -36,6 +36,7 @@ const useWebRTCClient = () => {
 
     const newWebRTC = new WebRTCClient(config);
     setWebRTCClient(newWebRTC);
+
     mockLoadingMessages(setLoadingMessages);
   }, []);
 

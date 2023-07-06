@@ -8,6 +8,8 @@ Before starting the app, please create a .env file in the root directory and add
 
 `REACT_APP_SHARE_ID=share-76-42f3-46e8-bb33-8911993449fb`
 
+**Note: loading time is intentionally delayed in order to show loading screen**
+
 ## Available Scripts
 
 In the project directory, you can run:

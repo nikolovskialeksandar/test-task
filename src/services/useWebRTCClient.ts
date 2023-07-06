@@ -1,8 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
 import { WebRTCClient, WebRTCClientProps } from '@arcware/webrtc-plugin';
+import mockLoadingMessages from './mockLoadingMessages';
 
 const useWebRTCClient = () => {
   const [webRTCClient, setWebRTCClient] = useState<WebRTCClient | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
 
   const sizeContainerRef = useRef<HTMLDivElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
@@ -18,8 +21,9 @@ const useWebRTCClient = () => {
         /* object with settings */
       },
       playOverlay: false,
-      loader: (res) => {
-        console.log(res);
+      loader: (res, disconnected) => {
+        console.log(res, disconnected);
+        setIsLoading(res);
       },
       applicationResponse: (res) => {
         console.log(res);
@@ -32,9 +36,10 @@ const useWebRTCClient = () => {
 
     const newWebRTC = new WebRTCClient(config);
     setWebRTCClient(newWebRTC);
+    mockLoadingMessages(setLoadingMessages);
   }, []);
 
-  return { webRTCClient, sizeContainerRef, videoContainerRef, videoRef, audioRef };
+  return { webRTCClient, isLoading, loadingMessages, sizeContainerRef, videoContainerRef, videoRef, audioRef };
 };
 
 export default useWebRTCClient;

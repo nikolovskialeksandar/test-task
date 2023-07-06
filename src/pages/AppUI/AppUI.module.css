@@ -4,3 +4,9 @@
   right: 15px;
   z-index: 10;
 }
+
+@media (max-width: 600px) {
+  .appUI {
+    bottom: 200px;
+  }
+}

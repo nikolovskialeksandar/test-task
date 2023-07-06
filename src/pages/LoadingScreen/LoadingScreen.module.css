@@ -13,37 +13,37 @@
 }
 
 .logo {
-  width: 250px;
+  width: 300px;
   margin-bottom: 50px;
   animation: fadeIn ease 3s;
 }
 
 .messages {
   position: relative;
-  width: 120px;
+  width: 300px;
   height: 150px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
 p {
   position: absolute;
   width: 100%;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 p:nth-of-type(1) {
-  color: #00968f;
+  color: var(--bd-color-green);
   animation: fadeIn 1s ease forwards;
 }
 
 p:nth-of-type(2) {
-  /* color: #ff5100; */
+  color: var(--bd-color-red);
   animation: second 1s ease forwards;
 }
 
 p:nth-of-type(3) {
-  /* color: #fe9f1b; */
-
+  color: var(--bd-color-yellow);
   animation: third 1s ease forwards;
 }
 
@@ -68,35 +68,31 @@ p:nth-of-type(n + 4) {
   from {
     transform: translateY(0);
     opacity: 1;
-    color: #00968f;
   }
   to {
-    transform: translateY(20px);
+    transform: translateY(40px);
     opacity: 0.6;
-    color: #ff5100;
   }
 }
 
 @keyframes third {
   from {
-    transform: translateY(20px);
+    transform: translateY(40px);
     opacity: 0.6;
-    color: #ff5100;
   }
   to {
-    transform: translateY(40px);
+    transform: translateY(80px);
     opacity: 0.3;
-    color: #fe9f1b;
   }
 }
 
 @keyframes fourth {
   from {
-    transform: translateY(40px);
+    transform: translateY(80px);
     opacity: 0.3;
   }
   to {
-    transform: translateY(60px);
+    transform: translateY(120px);
     opacity: 0;
   }
 }

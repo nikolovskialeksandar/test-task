@@ -1,4 +1,4 @@
-const mockLoadingMessages = (callback: React.Dispatch<React.SetStateAction<any[]>>) => {
+const mockLoadingMessages = (setState: React.Dispatch<React.SetStateAction<any[]>>) => {
   const messages = [
     'Creating stream',
     'Waiting for stream',
@@ -39,7 +39,7 @@ const mockLoadingMessages = (callback: React.Dispatch<React.SetStateAction<any[]
     }
 
     const message = messages.pop();
-    callback((prevState) => [message, ...prevState]);
+    setState((prevState) => [message, ...prevState]);
   }, 1500);
 };
 

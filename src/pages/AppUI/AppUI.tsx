@@ -21,7 +21,8 @@ const AppUI = ({ webRTCClient }: Props) => {
 
   const resolutions: Interactions = {
     '1920x1080': { console: 'r.setres 1920x1080w' },
-    '1368x720': { console: 'r.setres 1368x720w' },
+    '1366x720': { console: 'r.setres 1366x720w' },
+    '960x540': { console: 'r.setres 960x540w' },
   };
 
   const getOptions = () => Object.keys(resolutions).map((resolution) => ({ name: resolution, value: resolution }));

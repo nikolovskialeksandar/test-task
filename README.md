@@ -4,14 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Setting up environment
 
-Before starting the app, please create a .env file in the root directory and add the following values:
+Before starting the app, please create a .env file in the root directory and add the following value:
 
 ```
 REACT_APP_SHARE_ID=share-76-42f3-46e8-bb33-8911993449fb
-REACT_APP_DELAY_TIME=4000
 ```
 
-**Note: loading time is intentionally delayed in order to show loading screen. You can optionally set delay with enviorment variable, default is 4000ms.**
+**Note: to see loading screen for a longer time, switch to branch feat/with-mocked-messages, or set network throttling in browser developer tools.**
 
 ## Available Scripts
 
@@ -55,3 +54,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+
+```

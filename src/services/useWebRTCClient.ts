@@ -1,9 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { WebRTCClient, WebRTCClientProps } from '@arcware/webrtc-plugin';
-import mockLoadingMessages from './mockLoadingMessages';
-import { delay, getEnviornment } from 'utils';
+import { getEnviornment } from 'utils';
 
-const { shareId, delayTime } = getEnviornment();
+const { shareId } = getEnviornment();
 
 const useWebRTCClient = () => {
   const [webRTCClient, setWebRTCClient] = useState<WebRTCClient | null>(null);
@@ -14,13 +13,6 @@ const useWebRTCClient = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  const delayedWebRtcInitalization = async (config: WebRTCClientProps, delayTime = 4000) => {
-    await delay(delayTime);
-
-    const newWebRTC = new WebRTCClient(config);
-    setWebRTCClient(newWebRTC);
-  };
 
   useEffect(() => {
     const config: WebRTCClientProps = {
@@ -35,19 +27,18 @@ const useWebRTCClient = () => {
         console.log(res, disconnected);
         setIsLoading(res);
       },
-      applicationResponse: (res) => {
-        console.log(res);
+      sendLetter: (letter) => {
+        setLoadingMessages((prev) => [letter, ...prev]);
       },
+      forceVideoToFitContainer: false,
       sizeContainer: sizeContainerRef.current as HTMLDivElement,
       container: videoContainerRef.current as HTMLDivElement,
       videoRef: videoRef.current as HTMLVideoElement,
       audioRef: audioRef.current as HTMLAudioElement,
     };
 
-    mockLoadingMessages(setLoadingMessages);
-
-    // We intentionaly delay initialization to show loading screen for some time
-    delayedWebRtcInitalization(config, delayTime);
+    const newWebRTC = new WebRTCClient(config);
+    setWebRTCClient(newWebRTC);
   }, []);
 
   return { webRTCClient, isLoading, loadingMessages, sizeContainerRef, videoContainerRef, videoRef, audioRef };

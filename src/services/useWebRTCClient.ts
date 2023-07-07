@@ -30,7 +30,6 @@ const useWebRTCClient = () => {
       sendLetter: (letter) => {
         setLoadingMessages((prev) => [letter, ...prev]);
       },
-      forceVideoToFitContainer: false,
       sizeContainer: sizeContainerRef.current as HTMLDivElement,
       container: videoContainerRef.current as HTMLDivElement,
       videoRef: videoRef.current as HTMLVideoElement,

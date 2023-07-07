@@ -1,6 +1,6 @@
 .appUI {
   position: absolute;
-  bottom: 300px;
+  bottom: 20%;
   right: 15px;
   display: flex;
   flex-direction: column;

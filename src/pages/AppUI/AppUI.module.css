@@ -2,6 +2,8 @@
   position: absolute;
   bottom: 300px;
   right: 15px;
+  display: flex;
+  flex-direction: column;
   z-index: 10;
 }
 

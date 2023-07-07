@@ -1,5 +1,5 @@
 import { WebRTCClient } from '@arcware/webrtc-plugin';
-import { Button } from 'components/ui';
+import { Button, Select } from 'components/ui';
 
 import styles from './AppUI.module.css';
 
@@ -19,10 +19,23 @@ const AppUI = ({ webRTCClient }: Props) => {
     cam1: { camera_view: 'cam_01' },
   };
 
+  const resolutions: Interactions = {
+    '1920x1080': { console: 'r.setres 1920x1080w' },
+    '1368x720': { console: 'r.setres 1368x720w' },
+  };
+
+  const getOptions = () => Object.keys(resolutions).map((resolution) => ({ name: resolution, value: resolution }));
+
   const onInteraction = (interaction: Interaction) => webRTCClient.emitUIInteraction(interaction);
 
   return (
     <div className={styles.appUI}>
+      <Select
+        onChange={(event) => onInteraction(resolutions[event.target.value])}
+        options={getOptions()}
+        name="resolution"
+        label="Change resolution"
+      />
       <Button className={styles.button} onClick={() => onInteraction(interactions.cam1)} label="Focus Camera" />
     </div>
   );

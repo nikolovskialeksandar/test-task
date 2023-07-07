@@ -5,8 +5,8 @@ import styles from './Button.module.css';
 interface ButtonProps {
   className?: string;
   onClick: () => void;
-  disabled?: boolean;
   label: string;
+  disabled?: boolean;
 }
 
 const Button = ({ className, onClick, label, disabled = false, ...props }: ButtonProps) => (

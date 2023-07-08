@@ -30,8 +30,24 @@
 }
 
 @media (max-width: 600px) {
+  .selectLabel {
+    font-size: 10px;
+  }
+
   .select {
-    width: 100px;
+    width: 110px;
+    height: 30px;
+    font-size: 10px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .selectLabel {
+    font-size: 10px;
+  }
+
+  .select {
+    width: 110px;
     height: 30px;
     font-size: 10px;
   }

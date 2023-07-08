@@ -96,3 +96,9 @@ p:nth-of-type(n + 4) {
     opacity: 0;
   }
 }
+
+@media (max-width: 600px) {
+  p {
+    font-size: 14px;
+  }
+}

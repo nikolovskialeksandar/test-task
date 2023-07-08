@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.f133ddcb.css",
+    "main.css": "./static/css/main.227cfdb8.css",
     "main.js": "./static/js/main.0de7c529.js",
     "static/js/787.2a46bcdf.chunk.js": "./static/js/787.2a46bcdf.chunk.js",
     "static/media/Baya_Dynamics_over_and_under_logo_Colour.png": "./static/media/Baya_Dynamics_over_and_under_logo_Colour.19d21020f1251f1b1ac2.png",
     "index.html": "./index.html",
-    "main.f133ddcb.css.map": "./static/css/main.f133ddcb.css.map",
+    "main.227cfdb8.css.map": "./static/css/main.227cfdb8.css.map",
     "main.0de7c529.js.map": "./static/js/main.0de7c529.js.map",
     "787.2a46bcdf.chunk.js.map": "./static/js/787.2a46bcdf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f133ddcb.css",
+    "static/css/main.227cfdb8.css",
     "static/js/main.0de7c529.js"
   ]
 }

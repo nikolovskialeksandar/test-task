@@ -1,6 +1,5 @@
-import classNames from 'classnames';
-
 import { ChangeEvent, KeyboardEvent } from 'react';
+import classNames from 'classnames';
 
 import styles from './Select.module.css';
 

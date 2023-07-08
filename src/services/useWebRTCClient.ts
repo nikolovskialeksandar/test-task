@@ -19,17 +19,10 @@ const useWebRTCClient = () => {
       address: 'wss://signalling-client.ragnarok.arcware.cloud/',
       shareId,
       packageId: '',
-      settings: {
-        /* object with settings */
-      },
+      settings: {},
       playOverlay: false,
-      loader: (res, disconnected) => {
-        console.log(res, disconnected);
-        setIsLoading(res);
-      },
-      sendLetter: (letter) => {
-        setLoadingMessages((prev) => [letter, ...prev]);
-      },
+      loader: (res) => setIsLoading(res),
+      sendLetter: (letter) => setLoadingMessages((prevMessages) => [letter, ...prevMessages]),
       sizeContainer: sizeContainerRef.current as HTMLDivElement,
       container: videoContainerRef.current as HTMLDivElement,
       videoRef: videoRef.current as HTMLVideoElement,
